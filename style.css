@@ -1,0 +1,362 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(180deg, #0a1628 0%, #1a2845 50%, #2a3855 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    color: #fff;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Yıldızlar */
+.stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+/* Başlık */
+.love-message {
+    text-align: center;
+    padding: 60px 20px 40px;
+}
+
+.love-message h1 {
+    font-size: 4em;
+    color: #ff6b9d;
+    text-shadow: 0 0 20px rgba(255, 107, 157, 0.8),
+                 0 0 40px rgba(255, 107, 157, 0.5);
+    margin-bottom: 20px;
+}
+
+.love-message p {
+    font-size: 1.5em;
+    color: #ffc0d3;
+    font-style: italic;
+}
+
+/* Animasyonlar */
+.fade-in {
+    animation: fadeIn 2s ease-in;
+}
+
+.delay-1 {
+    animation-delay: 0.5s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+.delay-2 {
+    animation-delay: 1s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Çiçek Bahçesi */
+.garden {
+    position: relative;
+    min-height: 400px;
+    margin: 40px 0;
+}
+
+.flower {
+    position: absolute;
+    animation: growFlower 2s ease-out forwards;
+    transform-origin: bottom center;
+}
+
+@keyframes growFlower {
+    from {
+        transform: scale(0) translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+.stem {
+    width: 4px;
+    height: 100px;
+    background: linear-gradient(to bottom, #2d5016, #4a7c2f);
+    border-radius: 2px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.leaf {
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    background: #4a7c2f;
+    border-radius: 0 50% 50% 0;
+}
+
+.leaf.left {
+    left: -15px;
+    top: 30%;
+    transform: rotate(-45deg);
+}
+
+.leaf.right {
+    right: -15px;
+    top: 50%;
+    transform: rotate(45deg) scaleX(-1);
+}
+
+.petals {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.petal {
+    position: absolute;
+    width: 25px;
+    height: 35px;
+    border-radius: 50% 50% 50% 0;
+    transform-origin: bottom right;
+}
+
+.petal:nth-child(1) {
+    transform: rotate(0deg) translateX(-12px);
+}
+
+.petal:nth-child(2) {
+    transform: rotate(72deg) translateX(-12px);
+}
+
+.petal:nth-child(3) {
+    transform: rotate(144deg) translateX(-12px);
+}
+
+.petal:nth-child(4) {
+    transform: rotate(216deg) translateX(-12px);
+}
+
+.petal:nth-child(5) {
+    transform: rotate(288deg) translateX(-12px);
+}
+
+.flower-center {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle, #ffd700, #ffed4e);
+    border-radius: 50%;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+.sparkle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #ffed4e;
+    border-radius: 50%;
+    animation: sparkleAnim 1.5s infinite;
+}
+
+@keyframes sparkleAnim {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+/* Aşk Metni */
+.love-text {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 50px;
+    margin: 60px auto;
+    max-width: 800px;
+    border: 2px solid rgba(255, 107, 157, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.heart-wrapper {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    height: 60px;
+}
+
+.heart {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    background: #ff6b9d;
+    animation: heartbeat 1.5s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #ff6b9d;
+    border-radius: 50%;
+}
+
+.heart::before {
+    left: -25px;
+}
+
+.heart::after {
+    top: -25px;
+}
+
+.heart-2 {
+    animation-delay: 0.3s;
+    opacity: 0.3;
+    transform: translateX(-50%) scale(1.2);
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+    }
+    25% {
+        transform: translateX(-50%) scale(1.1);
+    }
+    50% {
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+.love-text h2 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #ff6b9d;
+    margin-bottom: 30px;
+    text-shadow: 0 0 15px rgba(255, 107, 157, 0.5);
+}
+
+.love-text p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #ffc0d3;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.signature {
+    text-align: right;
+    font-size: 1.5em;
+    color: #ff6b9d;
+    margin-top: 30px;
+    font-style: italic;
+}
+
+/* Uçan Kalpler */
+.floating-hearts {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+
+.floating-heart {
+    position: absolute;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+    opacity: 0;
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 0;
+        transform: translateY(0) rotate(0deg);
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100vh) rotate(360deg);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .love-message h1 {
+        font-size: 2.5em;
+    }
+    
+    .love-text {
+        padding: 30px 20px;
+    }
+    
+    .love-text h2 {
+        font-size: 1.8em;
+    }
+    
+    .love-text p {
+        font-size: 1em;
+    }
+}
